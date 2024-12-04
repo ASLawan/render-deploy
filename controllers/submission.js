@@ -1,8 +1,10 @@
 const { Entry } = require("../models");
 const { WebSocketServer } = require("ws");
 
+const PORT = process.env.PORT || 5000;
+
 // Websocket instance
-const wss = new WebSocketServer({ port: 5001 });
+const wss = new WebSocketServer({ port: 5000 });
 
 wss.on("connection", (ws) => {
   console.log("Client Connected!");
