@@ -4,11 +4,11 @@ const { WebSocketServer } = require("ws");
 const PORT = process.env.PORT || 5000;
 
 // Websocket instance
-const wss = new WebSocketServer({ port: 5000 });
+// const wss = new WebSocketServer({ port: 5000 });
 
-wss.on("connection", (ws) => {
-  console.log("Client Connected!");
-});
+// wss.on("connection", (ws) => {
+//   console.log("Client Connected!");
+// });
 
 // routes
 //create a new entry
@@ -29,11 +29,11 @@ const createSubmission = async (req, res) => {
     });
 
     //Notiffy all websocket clients
-    wss.clients.forEach((client) => {
-      if (client.readyState === client.OPEN) {
-        client.send(JSON.stringify(entry));
-      }
-    });
+    // wss.clients.forEach((client) => {
+    //   if (client.readyState === client.OPEN) {
+    //     client.send(JSON.stringify(entry));
+    //   }
+    // });
 
     res.status(201).json(entry);
   } catch (error) {
